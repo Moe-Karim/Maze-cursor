@@ -35,3 +35,21 @@ function GameStart() {
     boundaries();
     YouWin();
 }
+function Cheating(event) {
+    if (!game.contains(event.relatedTarget)) {
+        lost();
+    }
+}
+function boundaries() {
+    boundary.forEach((element) => {
+        element.addEventListener("mouseover", lost);
+    });
+}
+
+function YouWin() {
+    end.addEventListener("mouseover", () => {
+        if (win) {
+            won();
+        }
+    });
+}
